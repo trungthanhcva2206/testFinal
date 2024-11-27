@@ -1,0 +1,29 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Student {
+  address     String?
+  createdAt   DateTime  @default(now())
+  dateOfBirth DateTime?
+  email       String?
+  firstName   String?
+  id          String    @id @default(cuid())
+  lastName    String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model Classes {
+  className   String?
+  createdAt   DateTime  @default(now())
+  description String?
+  endDate     DateTime?
+  id          String    @id @default(cuid())
+  startDate   DateTime?
+  updatedAt   DateTime  @updatedAt
+}
